@@ -1,4 +1,8 @@
 
+/* Class containing left and right child of current
+   node and key value*/
+
+
 public class Node {
 
 	int key;
@@ -7,19 +11,11 @@ public class Node {
 	Node leftChild;
 	Node rightChild;
 
-	public Node(int key, String name) {
+	public Node(int item, String detils) {
 
-		this.key = key;
-		this.name = name;
+		this.key = item;
+		this.name = detils;
 
-	}
-	
-	public void setLeftNode(Node node) {
-		this.leftChild = node;
-	}
-
-	public void setRightNode(Node node) {
-		this.rightChild = node;
 	}
 	
 	@Override
@@ -31,6 +27,24 @@ public class Node {
 		builder.append(rightChild.toString());
 		return builder.toString();
 	}
+
+	public Node getLeftChild() {
+		return leftChild;
+	}
+	
+	public void addLeftNode(int i, String str) {
+		this.leftChild = new Node(i,str);
+	}
+	
+	public void addRightNode(int i, String str) {
+		this.rightChild = new Node(i,str);
+	}
+
+	public Node getRightChild() {
+		return rightChild;
+	}
+
+
 	
 	
 }

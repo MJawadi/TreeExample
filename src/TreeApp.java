@@ -1,200 +1,56 @@
-import java.util.Scanner;
 
 public class TreeApp {
 
 	Node root;
-	
-	
-    /*
-	public void addNode(int key, String name) {
-
-		// Create a new Node and initialize it
-		Node newNode = new Node(key, name);
-
-		// If there is no root this become root
-		if (root == null) {
-
-			root = newNode;
-
-		} else {
-
-			// Set root as the Node we will start
-			// with as we traverse the tree
-			Node focusNode = root;
-
-			// Future parent for our new Node
-			Node parent;
-
-			while (true) {
-
-				// root is the top parent so we start
-				// there
-				parent = focusNode;
-
-				// Check if the new node should go on
-				// the left side of the parent node
-				if (key < focusNode.key) {
-
-					// Switch focus to the left child
-					focusNode = focusNode.leftChild;
-
-					// If the left child has no children
-					if (focusNode == null) {
-
-						// then place the new node on the left of it
-						parent.leftChild = newNode;
-						return; // All Done
-					}
-				} else { // If we get here put the node on the right
-
-					focusNode = focusNode.rightChild;
-
-					// If the right child has no children
-					if (focusNode == null) {
-
-						// then place the new node on the right of it
-						parent.rightChild = newNode;
-						return; // All Done
-					}
-				}
-
-			}
-
-		}
-	}
-	
-	*/
-
-	// All nodes are visited in ascending order
-	// Recursion is used to go to one node and
-	// then go to its child nodes and so forth
-	
-	/*
-	public void inOrderTraverseTree(Node focusNode) {
-
-		if (focusNode != null) {
-
-			// Traverse the left node
-			inOrderTraverseTree(focusNode.leftChild);
-
-			// Visit the currently focused on node
-
-			System.out.println(focusNode);
-
-			// Traverse the right node
-
-			inOrderTraverseTree(focusNode.rightChild);
-
-		}
-	}
-
-	public void preorderTraverseTree(Node focusNode) {
-
-		if (focusNode != null) {
-
-			System.out.println(focusNode);
-
-			preorderTraverseTree(focusNode.leftChild);
-			preorderTraverseTree(focusNode.rightChild);
-
-		}
-	}
-
-	public void postOrderTraverseTree(Node focusNode) {
-
-		if (focusNode != null) {
-
-			postOrderTraverseTree(focusNode.leftChild);
-			postOrderTraverseTree(focusNode.rightChild);
-
-			System.out.println(focusNode);
-
-		}
-	}
-	*/
-
-	
-	/*
-	public Node findNode(int key) {
-
-		// Start at the top of the tree
-
-		Node focusNode = root;
-
-		// While we haven't found the Node
-		// keep looking
-
-		while (focusNode.key != key) {
-
-			// If we should search to the left
-
-			if (key < focusNode.key) {
-
-				// Shift the focus Node to the left child
-
-				focusNode = focusNode.leftChild;
-
-			} else {
-
-				// Shift the focus Node to the right child
-
-				focusNode = focusNode.rightChild;
-
-			}
-
-			// The node wasn't found
-
-			if (focusNode == null)
-				return null;
-
-		}
-
-		return focusNode;
-
-	}
-	
-	*/
 
 	public static void main(String[] args) {
-
-		//Scanner input = new Scanner(System.in);
-		//int search = input.nextInt();
 		
 		Tree tree = new Tree();
 		Node root = tree.getRoot();
 		
 		
-		root.setLeftNode(new Node(tree.getNewNumber(),"Erstes Kind"));
-		root.setRightNode(new Node(tree.getNewNumber(),"Zweites Kind"));
+		//  In this part add some value and making the tree with structure and sub classes
 		
-		System.out.println(root +"");
+		// two first sub Nodes
+		root.addLeftNode(tree.getNewNumber(),"Erstes Kind");
+		root.addRightNode(tree.getNewNumber(),"Zweites Kind");
+		/*
+                    0
+                  /   \
+                 /     \
+                1       2 
+                
+        */
 		
-        /*
-		TreeApp theTree = new TreeApp();
-		theTree.addNode(01, "Boss");
-		theTree.addNode(02, "Vice President");
-		theTree.addNode(03, "Office Manager");
-		theTree.addNode(04, "Secretary");
-		theTree.addNode(05, "Sales Manager");
-		theTree.addNode(06, "Salesman 1");
-		theTree.addNode(07, "Denis");
-		*/
-
-		// Different ways to traverse binary trees
-		// theTree.inOrderTraverseTree(theTree.root);
-		// theTree.preorderTraverseTree(theTree.root);
-		// theTree.postOrderTraverseTree(theTree.root);
-		// Find the node with key 75
+		// selecting the left Node i've just made to make sub Node uner that
+		Node leftChild = root.getLeftChild();
 		
 		
-		//System.out.println("Please add the search number! ");
-		//if (search == theTree.findNode(key)) {
-
-	        /*	
-			System.out.println("Node with the key ");
-			System.out.println(theTree.findNode(01));
-            */
-            
+		// after selecting the left Node creating sub Nodes laft and right
+		leftChild.addLeftNode(tree.getNewNumber(), "Fist Son");
+		leftChild.addRightNode(tree.getNewNumber(), "First Girl");
+		/*
+                     0
+                   /   \
+                  /     \
+                 1       2 
+                / \
+               /   \
+              3     4
+                 
+    
+        */
+		// Like above selecting right Node to making another two or one sun Nodes
+		Node rightChild = root.getRightChild();
+		
+		
+		// Making sub Nodes for selected right Node
+		rightChild.addLeftNode(tree.getNewNumber(), "Second Son");
+		rightChild.addRightNode(tree.getNewNumber(), "Second Girl");
+		
+		System.out.println();
+		
+		 
 		}
 
 	}
