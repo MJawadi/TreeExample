@@ -19,7 +19,7 @@ public class Tree {
 	
 	@Override
 	public String toString() {
-		return root.toString();
+		return root.toString(0);
 	}
 
 }

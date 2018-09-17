@@ -12,23 +12,23 @@ public class TreeApp {
 		//  In this part add some value and making the tree with structure and sub classes
 		
 		// two first sub Nodes
-		root.addLeftNode(tree.getNewNumber(),"Erstes Kind");
-		root.addRightNode(tree.getNewNumber(),"Zweites Kind");
+		root.addLeftNode(tree.getNewNumber(),"Two");
+		root.addRightNode(tree.getNewNumber(),"One");
 		/*
                     0
                   /   \
                  /     \
-                1       2 
+                2       1 
                 
         */
 		
-		// selecting the left Node i've just made to make sub Node uner that
+		// selecting the left Node i've just made to make sub Node under that
 		Node leftChild = root.getLeftChild();
 		
 		
-		// after selecting the left Node creating sub Nodes laft and right
-		leftChild.addLeftNode(tree.getNewNumber(), "Fist Son");
-		leftChild.addRightNode(tree.getNewNumber(), "First Girl");
+		// after selecting the left Node creating sub Nodes left and right
+		leftChild.addLeftNode(tree.getNewNumber(), "Four");
+		leftChild.addRightNode(tree.getNewNumber(), "Three");
 		/*
                      0
                    /   \
@@ -45,10 +45,22 @@ public class TreeApp {
 		
 		
 		// Making sub Nodes for selected right Node
-		rightChild.addLeftNode(tree.getNewNumber(), "Second Son");
-		rightChild.addRightNode(tree.getNewNumber(), "Second Girl");
+		rightChild.addLeftNode(tree.getNewNumber(), "Six");
+		rightChild.addRightNode(tree.getNewNumber(), "Five");
 		
-		System.out.println();
+		
+		/*
+		leftChild.leftChild = root.getLeftChild();
+		rightChild.rightChild = root.getRightChild();
+		
+		leftChild.leftChild.addLeftNode(tree.getNewNumber(), "Eight");
+		leftChild.leftChild.addRightNode(tree.getNewNumber(), "Seven");
+		rightChild.rightChild.addLeftNode(tree.getNewNumber(), "Ten");
+		rightChild.rightChild.addRightNode(tree.getNewNumber(), "Nine");
+		*/
+		
+		
+		System.out.println(tree.toString());
 		
 		 
 		}
