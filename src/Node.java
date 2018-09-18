@@ -19,72 +19,57 @@ public class Node {
 	}
 	
 	public String toString(final int depth) {
-		StringBuilder builder = new StringBuilder();
-	
-		
-
-		builder.append('\n');
-		builder.append(name);
-		builder.append(": ");
-		if (this.leftChild == null ) {
-			builder.append("empty");
-		}else {
-			builder.append('\t');
-			builder.append(leftChild.toString(depth));
-		}
-		if (this.rightChild == null) {
-			builder.append("empty");
-		}else {
-			builder.append('\t');
-		    builder.append(rightChild.toString(depth));
-		}
-		
-		
-		/*
-		if (this.leftChild.leftChild == null) {
-			
-		}else {
-			
-		}
-		if (this.leftChild.leftChild == null) {
-			
-		}else {
-			
-		}
-		*/
-		/*
-		builder.append(leftChild.leftChild.toString(depth));
-		builder.append(leftChild.rightChild.toString(depth));
-		builder.append(leftChild.rightChild.toString(depth));
-		builder.append(leftChild.rightChild.toString(depth));
-*/
-
-		/*
-	    builder.append('\t');
-
-
-
-	    builder.append('\t');
-		
-		builder.append("LeftChild: ");
-		builder.append('\n');
+	StringBuilder builder = new StringBuilder();
+	for(int i = 0; i < depth; i++) {
 		builder.append('\t');
-		builder.append("empty");
-		builder.append('\n');
-		builder.append('\t');
-
-		builder.append('\n');
-		builder.append('\t');
-		builder.append("RightChild: ");
-		builder.append('\n');
-		builder.append('\t');
-		builder.append("empty");
-		builder.append('\t');
-
-		*/
-		
-		return builder.toString();
 	}
+	builder.append(name);
+	builder.append(": ");
+	builder.append('\n');
+	for(int i = 0; i < depth; i++) {
+		builder.append('\t');
+	}
+	
+	//builder.append("LeftChild: ");
+	builder.append('\n');
+	if(this.leftChild == null) {
+		for(int i = 0; i < depth+2; i++) {
+			builder.append('\t');
+		}
+		builder.append("empty");
+		builder.append('\n');
+	} else {
+		for(int i = 0; i < depth+1; i++) {
+			builder.append('\t');
+		}
+		builder.append(leftChild.toString(depth+1));
+		builder.append('\n');
+	}
+	
+	for(int i = 0; i < depth+1; i++) {
+		builder.append('\t');
+	}
+	
+	//builder.append("RightChild: ");
+	//builder.append('\n');
+	if(this.rightChild == null) {
+		for(int i = 0; i < depth+2; i++) {
+			builder.append('\t');
+		}
+		//builder.append("empty");
+	} else {
+		for(int i = 0; i < depth; i++) {
+			builder.append('\t');
+		}
+		builder.append(rightChild.toString(depth+1));
+	}
+	
+	return builder.toString();
+	}
+
+	
+	
+	
 
 	public Node getLeftChild() {
 		return leftChild;
